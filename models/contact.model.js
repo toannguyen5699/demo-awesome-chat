@@ -9,6 +9,12 @@ var contactSchema = new mongoose.Schema({
 	deletedAt: { type: Number, default: null }
 });
 
+contactSchema.statics = {
+	createNew(item) {
+		return this.create(item);
+	}
+}
+
 var Contact = mongoose.model('Contact', contactSchema, 'contacts');
 
-module.exports = Contact
+module.exports = Contact;
